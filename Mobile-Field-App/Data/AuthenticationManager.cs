@@ -55,6 +55,13 @@ namespace Mobile_Field_App.Data
             return false;
         }
 
+        public async Task<bool> LogOut()
+        {
+            SecureStorage.Default.RemoveAll();
+            authentication.headers.Clear();
+            return true;
+        }
+
         public async Task<bool> PerformCredentialLogin(string email, string password)
         {
             var req = new Request();
@@ -68,6 +75,7 @@ namespace Mobile_Field_App.Data
             var res = await req.Execute();
             if (res.isSuccess)
             {
+                authentication.headers.Clear();
                 authentication.headers.Add("uid", res.bodyAsJson.Value.GetProperty("uid").GetString());
                 authentication.headers.Add("token", res.bodyAsJson.Value.GetProperty("token").GetString());
                 StoreGrant();
