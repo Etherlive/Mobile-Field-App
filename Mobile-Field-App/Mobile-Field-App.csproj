@@ -49,4 +49,8 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\API-Whisperer\API-Whisperer\API-Whisperer.csproj" />
+    </ItemGroup>
+
 </Project>

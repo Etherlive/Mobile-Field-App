@@ -1,0 +1,37 @@
+﻿@page "/login"
+@using Mobile_Field_App.Data
+@inject AuthenticationManager AuthenticationService
+@inject NavigationManager NavigationManager
+
+<h3>Field Portal Login</h3>
+
+<div>
+    <label>Email:</label><br />
+    <input value="@email" placeholder="Email" />
+</div>
+
+<div>
+<label>Password:</label><br />
+<input value="@password" placeholder="Password"/>
+</div>
+
+<p style="color: red">@error</p>
+<button type="button" onclick="@DoLogin">Login</button>
+
+@code {
+    private string email = "", password = "", error = "";
+
+    private async void DoLogin(){
+        if (email.Length==0 || password.Length==0) {
+            error = "Please Fill The Email And Password Field";
+            return;
+        }
+
+        if (!await AuthenticationService.PerformCredentialLogin(email,password)){
+            error = "Email or Password Invalid";
+            return;
+        }
+
+        NavigationManager.NavigateTo("/");
+    }
+}

@@ -1,7 +1,31 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@using Mobile_Field_App.Data
+@inject AuthenticationManager AuthenticationService
+@inject NavigationManager NavigationManager
 
-Welcome to your new app.
+@code{
+	protected override async Task OnInitializedAsync()
+	{
+		if (await AuthenticationService.HasGrantInStorage() && await AuthenticationService.ConfirmGrantInStorage())
+		{
+
+		}
+		else
+		{
+			NavigationManager.NavigateTo("/login");
+		}
+	}
+
+	private string Name{
+		get{
+			return AuthenticationService.userData.HasValue ? AuthenticationService.userData.Value.GetProperty("email").GetString() : "Unknown";
+		}
+	}
+}
+
+<h3>Welcome @Name</h3>
+
+Welcome to the Field Portal.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
