@@ -35,7 +35,7 @@ jobs:
         run: dotnet workload install maui --ignore-failed-sources
 
       - name: Restore Dependencies
-        run: dotnet restore $GITHUB_WORKSPACE/Mobile-Field-App.sln
+        run: dotnet restore src/Mobile-Field-App.sln
         
       - name: Build MAUI iOS
         run: dotnet build $GITHUB_WORKSPACE/Mobile-Field-App.sln -c Release -f net6.0-ios --no-restore /p:buildForSimulator=True /p:packageApp=True /p:ArchiveOnBuild=False
