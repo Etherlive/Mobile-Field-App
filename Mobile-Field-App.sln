@@ -6,6 +6,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobile-Field-App", "Mobile-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API-Whisperer", "API-Whisperer\API-Whisperer\API-Whisperer.csproj", "{AB3EC646-8D08-40A0-8507-819444C87379}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B69C79DD-B4A8-4400-B04C-C51A75148EC0}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\BUILD.yml = .github\workflows\BUILD.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
