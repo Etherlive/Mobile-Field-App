@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mauibeach-ios-ci-build
-          path: Mobile-Field-App/Mobile-Field-App/bin/Release/net6.0-ios/iossimulator-x64/**/*.app
+          path: Mobile-Field-App/bin/Release/net6.0-ios/iossimulator-x64/**/*.app
 
       - name: Build MAUI Android
         run: dotnet publish Mobile-Field-App/Mobile-Field-App.csproj -c Release -f net6.0-android --no-restore
@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mauibeach-android-ci-build
-          path: Mobile-Field-App/Mobile-Field-App/bin/Release/net6.0-android/*Signed.a*
+          path: Mobile-Field-App/bin/Release/net6.0-android/*Signed.a*
 
       - name: Build MAUI Windows
         run: dotnet publish Mobile-Field-App/Mobile-Field-App.csproj -c Release -f net6.0-windows10.0.19041.0 --no-restore
@@ -64,5 +64,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: fieldapp-windows-ci-build
-          path: Mobile-Field-App/Mobile-Field-App/bin/Release/net6.0-windows10.0.19041.0/win10-x64/AppPackages/MauiBeach*/MauiBeach*.msix
+          path: Mobile-Field-App/bin/Release/net6.0-windows10.0.19041.0/win10-x64/AppPackages/Mobile*/Mobile*.msix
 
